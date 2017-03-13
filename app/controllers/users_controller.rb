@@ -1,4 +1,4 @@
-class UsersController < ApplicationController\
+class UsersController < ApplicationController
 
   def index
     @users = User.all
@@ -19,9 +19,10 @@ class UsersController < ApplicationController\
   end
 
   def show
-    redirect_to root_path unless logged_in? && authorized?
     user_id = params[:id]
     @user = User.find_by_id(user_id)
+    redirect_to root_path unless logged_in? && authorized?
+
   end
 
   private
